@@ -3,6 +3,7 @@ define('FILE_PATH', __DIR__ . '/mockDB');
 $password = trim(file_get_contents('password.cfg'));
 if (empty($password)) {
 	echo "Missing or empty password file!";
+	exit(2);
 }
 if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 	header("HTTP/1.0 403 Forbidden");
