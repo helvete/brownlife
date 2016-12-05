@@ -11,8 +11,8 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 	exit;
 }
 
-$now = new DateTime('2016-03-01');
-$threshold = new DateTime('2016-04-01');
+$now = new DateTime('2016-11-28');
+$threshold = new DateTime('2017-11-28');
 $storage = getArrayStorage($now, $threshold, 3);
 
 if (!empty($_GET['change'])) {
