@@ -14,3 +14,7 @@ In order to use it these lines have to be adjusted in order to set the threshold
 $now = new DateTime('2016-11-28');
 $threshold = new DateTime('2017-11-28');
 ```
+
+Example of rendered and utilized tracker:
+
+![Brownlife rendered web](https://raw.githubusercontent.com/helvete/brownlife/master/bl.png)
