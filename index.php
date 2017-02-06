@@ -24,7 +24,7 @@ if (!empty($_GET['change'])) {
 
 	list($row, $col) = explode('-', $_GET['change']);
 	storeArrayStorage($row, $col);
-	header('location: https://'. $_SERVER['HTTP_HOST']);
+	header('location: https://'. $_SERVER['HTTP_HOST'] . "#{$row}");
 	exit;
 }
 ?>
@@ -88,7 +88,7 @@ while ($token < $threshold) {
 	$date = $token->format('Y-m-d');
 	echo <<<HTM
 		<tr>
-			<td class="date">$date</td>
+			<td class="date" id="{$it}">$date</td>
 			<td id="{$it}-0" class="square active {$storage[$date][0]}"></td>
 			<td id="{$it}-1" class="square active {$storage[$date][1]}"></td>
 			<td id="{$it}-2" class="square active {$storage[$date][2]}"></td>
