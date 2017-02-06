@@ -12,14 +12,14 @@ Submitted data are stored in _mockDB_ a file, that simulates a very simple datab
 
 ### In order to use it do this
 
-1. copy password.cfg.sample into password.cfg and change the password stored there
+1/ copy password.cfg.sample into password.cfg and change the password stored there
 
 ```
 $ cp ./password.cfg.sample ./password.cfg
 $ echo your-new-password > ./password.cfg
 ```
 
-2. adjust these lines of `index.php` file to set start and end dates:
+2/ adjust these lines of `index.php` file to set start and end dates:
 
 ```
 $now = new DateTime('2016-11-28');
