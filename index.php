@@ -59,6 +59,8 @@ if (!empty($_GET['change'])) {
 			$(document).ready(function(){
 				$('td.active').click(function(){
 					var target = window.location.href;
+					var split = target.split('#');
+					target = split[0];
 					target = target + '?change=' + $(this).attr('id') + "&pwd=" + $('input#pwd').val();
 					window.location.href = target;
 				});
