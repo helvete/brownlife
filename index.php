@@ -28,9 +28,11 @@ if (!empty($_GET['change'])) {
 	exit;
 }
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>DrugTracker</title>
+		<meta charset="UTF-8" />
+		<title>Resolutions Tracker</title>
 		<style>
 
 			.square {
@@ -53,9 +55,13 @@ if (!empty($_GET['change'])) {
 			.highlight {
 				background-color: brown;
 			}
+			th.date a {
+				text-decoration: none;
+				color: brown;
+			}
 		</style>
 		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-		<script>
+		<script type="text/javascript">
 			$(document).ready(function(){
 				$('td.active').click(function(){
 					var target = window.location.href;
