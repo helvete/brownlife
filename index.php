@@ -84,7 +84,7 @@ if (!empty($_GET['change'])) {
 							<input type="password" id="pwd" name="pwd" size="8" />
 							<input type="submit" name="submit" value="" style="display:none;" />
 						</form>
-							<a href="#today">Today!</a>
+						<a href="#today">today</a>
 					</th>
 					<th class="square">Tobacco</th>
 					<th class="square">Booze</th>
@@ -99,25 +99,31 @@ while ($token < $threshold) {
 	$date = $token->format('Y-m-d');
 	echo <<<HTM
 		<tr>
+			<td class="date" id="{$it}">$date
 HTM;
 	if ($date === $nowString) {
 	echo <<<HTM
 		<a name="today"></a>
 HTM;
+	} else {
+	echo <<<HTM
+
+HTM;
 	}
 	echo <<<HTM
-			<td class="date" id="{$it}">$date</td>
+</td>
 			<td id="{$it}-0" class="square active {$storage[$date][0]}"></td>
 			<td id="{$it}-1" class="square active {$storage[$date][1]}"></td>
 			<td id="{$it}-2" class="square active {$storage[$date][2]}"></td>
 		</tr>
+
 HTM;
 	$it++;
 	$token->add(new DateInterval('P1D'));
 }
 ?>
-			</div>
-		</table>
+			</table>
+		</div>
 	</body>
 </html>
 <?php
