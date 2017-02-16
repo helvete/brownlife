@@ -11,9 +11,9 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 	exit;
 }
 
-$now = new DateTime('2016-11-28');
+$start = new DateTime('2016-11-28');
 $threshold = new DateTime('2017-11-28');
-$storage = getArrayStorage($now, $threshold, 3);
+$storage = getArrayStorage($start, $threshold, 3);
 
 if (!empty($_GET['change'])) {
 	if (empty($_GET['pwd']) || $_GET['pwd'] !== $password) {
@@ -78,18 +78,28 @@ if (!empty($_GET['change'])) {
 							<input type="password" id="pwd" name="pwd" size="8" />
 							<input type="submit" name="submit" value="" style="display:none;" />
 						</form>
+							<a href="#today">Today!</a>
 					</th>
 					<th class="square">Tobacco</th>
 					<th class="square">Booze</th>
 					<th class="square">Weed</th>
 				</tr>
 <?php
-$token = clone $now;
+$now = new \DateTime();
+$nowString = $now->format('Y-m-d');
+$token = clone $start;
 $it = 0;
 while ($token < $threshold) {
 	$date = $token->format('Y-m-d');
 	echo <<<HTM
 		<tr>
+HTM;
+	if ($date === $nowString) {
+	echo <<<HTM
+		<a name="today"></a>
+HTM;
+	}
+	echo <<<HTM
 			<td class="date" id="{$it}">$date</td>
 			<td id="{$it}-0" class="square active {$storage[$date][0]}"></td>
 			<td id="{$it}-1" class="square active {$storage[$date][1]}"></td>
